@@ -23,7 +23,7 @@ body {
 .landing-view,
 .auth-view,
 .dashboard-view {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 .landing-panel,
@@ -85,7 +85,7 @@ body {
 
 .landing-stat-value {
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .landing-stat-label {
