@@ -6,8 +6,8 @@ const STORAGE_KEYS = {
 };
 
 const DEMO_USER = {
-  username: "admin",
-  password: "1234"
+  username: "malith",
+  password: "2004"
 };
 
 let state = {
