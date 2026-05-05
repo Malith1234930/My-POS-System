@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern POS System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section id="landingView" class="landing-view">
+      <div class="container py-5">
+        <div class="landing-panel">
+          <nav class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-5">
+            <div class="landing-brand">Bean Bar POS</div>
+            <button id="openLoginBtn" class="btn btn-primary px-4" type="button">Staff Login</button>
+          </nav>
+
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <span class="eyebrow landing-eyebrow">Coffee Shop Point Of Sale</span>
+              <h1 class="landing-title mt-3">Brew, bill, and serve with one simple cafe dashboard.</h1>
+              <p class="landing-copy mt-3">A clean coffee shop POS for baristas to manage guests, menu items, and daily orders without leaving a single page.</p>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <button id="startNowBtn" class="btn btn-primary btn-lg px-4" type="button">Start Now</button>
+                <button id="learnMoreBtn" class="btn btn-outline-dark btn-lg px-4" type="button">See Features</button>
+              </div>
+              <div class="row g-3 mt-4">
+                <div class="col-sm-4">
+                  <div class="landing-stat">
+                    <div class="landing-stat-value">Fast</div>
+                    <div class="landing-stat-label">Simple single page flow</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="landing-stat">
+                    <div class="landing-stat-value">Cafe</div>
+                    <div class="landing-stat-label">Coffee-focused menu handling</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="landing-stat">
+                    <div class="landing-stat-value">Local</div>
+                    <div class="landing-stat-label">Runs with browser storage</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="landing-showcase">
+                <div class="showcase-card">
+                  <div class="showcase-kicker">Today at the counter</div>
+                  <h2 class="h3 mt-2">Keep rush hour smooth.</h2>
+                  <p class="text-secondary mb-4">Track regular customers, update drink prices, and place orders with automatic totals and order history.</p>
+                  <div class="showcase-list">
+                    <div>Signature coffees and snacks</div>
+                    <div>Guest and loyalty customer records</div>
+                    <div>Quick order confirmation for each sale</div>
+                  </div>
+                </div>
+                <div id="featuresBlock" class="beans-note mt-4">
+                  <strong>Included:</strong> login, customer management, menu item CRUD, live cart totals, and order history.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loginView" class="auth-view container py-5 d-none">
+      <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-lg-10">
+          <div class="card auth-card border-0 shadow-lg overflow-hidden">
+            <div class="row g-0">
+              <div class="col-md-6 auth-hero p-5">
+                <span class="eyebrow">Barista Workspace</span>
+                <h1 class="display-5 fw-bold mt-3">Coffee counter control for your daily service.</h1>
+                <p class="lead mt-3 mb-0">Sign in to manage cafe guests, drinks, stock, and orders from one warm, simple dashboard.</p>
+              </div>
+              <div class="col-md-6 bg-white p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="text-uppercase text-secondary small mb-1">Secure Access</p>
+                    <h2 class="h3 mb-0">Sign In</h2>
+                  </div>
+                  <div class="brand-badge">POS</div>
+                </div>
+                <div class="demo-credentials mb-4">
+                  <div><strong>Username:</strong> admin</div>
+                  <div><strong>Password:</strong> 1234</div>
+                </div>
+                <form id="loginForm" novalidate>
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control form-control-lg" id="username" placeholder="Enter username" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter password" required>
+                  </div>
+                  <div id="loginAlert" class="alert alert-danger d-none" role="alert"></div>
+                  <button type="submit" class="btn btn-primary btn-lg w-100">Log In</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="dashboard-view d-none">
+      <nav class="navbar navbar-expand-lg navbar-dark dashboard-nav sticky-top">
+        <div class="container-fluid px-4">
+          <a class="navbar-brand fw-bold" href="#">Bean Bar POS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active nav-section-link" href="#" data-section="overviewSection">Overview</a></li>
+              <li class="nav-item"><a class="nav-link nav-section-link" href="#" data-section="customersSection">Guests</a></li>
+              <li class="nav-item"><a class="nav-link nav-section-link" href="#" data-section="itemsSection">Menu</a></li>
+              <li class="nav-item"><a class="nav-link nav-section-link" href="#" data-section="ordersSection">Orders</a></li>
+              <li class="nav-item"><a class="nav-link nav-section-link" href="#" data-section="historySection">Order History</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+              <span class="text-white-50 small">Signed in as <strong class="text-white">admin</strong></span>
+              <button id="logoutBtn" class="btn btn-outline-light">Logout</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container-fluid px-4 py-4">
+        <section id="overviewSection" class="page-section">
+          <div class="hero-panel p-4 p-lg-5 mb-4">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <span class="eyebrow">Cafe Snapshot</span>
+                <h2 class="display-6 fw-bold mt-2">Run your coffee shop from open to close in one place.</h2>
+                <p class="mb-0 text-secondary">Manage guests, menu items, and coffee orders with fast local storage and a clear, barista-friendly workflow.</p>
+              </div>
+              <div class="col-lg-4">
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div class="metric-card">
+                      <div class="metric-label">Customers</div>
+                      <div id="customerCount" class="metric-value">0</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="metric-card">
+                      <div class="metric-label">Items</div>
+                      <div id="itemCount" class="metric-value">0</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="metric-card">
+                      <div class="metric-label">Orders</div>
+                      <div id="orderCount" class="metric-value">0</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="metric-card">
+                      <div class="metric-label">Revenue</div>
+                      <div id="revenueTotal" class="metric-value">$0.00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-7">
+              <div class="content-card p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="h5 mb-0">Recent Cafe Orders</h3>
+                  <a href="#" class="link-primary nav-section-link" data-section="historySection">See history</a>
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-middle" id="recentOrdersTable">
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="content-card p-4 h-100">
+                <h3 class="h5 mb-3">Quick Guide</h3>
+                <div class="timeline-note">
+                  <strong>1.</strong> Add cafe guests and menu items.
+                </div>
+                <div class="timeline-note">
+                  <strong>2.</strong> Open Orders and build the drink cart.
+                </div>
+                <div class="timeline-note">
+                  <strong>3.</strong> Place the order and review it in history.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="customersSection" class="page-section d-none">
+          <div class="row g-4">
+            <div class="col-xl-4">
+              <div class="content-card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="h5 mb-0">Guest Form</h3>
+                  <button id="resetCustomerBtn" class="btn btn-sm btn-outline-secondary" type="button">Reset</button>
+                </div>
+                <form id="customerForm" novalidate>
+                  <input type="hidden" id="customerId">
+                  <div class="mb-3">
+                    <label for="customerName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="customerName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="customerPhone" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" id="customerPhone" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="customerAddress" class="form-label">Address</label>
+                    <textarea class="form-control" id="customerAddress" rows="3" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Save Guest</button>
+                </form>
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <div class="content-card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                  <h3 class="h5 mb-0">Guest Directory</h3>
+                  <input type="search" id="customerSearch" class="form-control search-input" placeholder="Search by name, phone, or address">
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-middle" id="customersTable">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="itemsSection" class="page-section d-none">
+          <div class="row g-4">
+            <div class="col-xl-4">
+              <div class="content-card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="h5 mb-0">Menu Item Form</h3>
+                  <button id="resetItemBtn" class="btn btn-sm btn-outline-secondary" type="button">Reset</button>
+                </div>
+                <form id="itemForm" novalidate>
+                  <input type="hidden" id="itemId">
+                  <div class="mb-3">
+                    <label for="itemCode" class="form-label">Item Code</label>
+                    <input type="text" class="form-control" id="itemCode" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="itemName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="itemPrice" class="form-label">Unit Price</label>
+                    <input type="number" class="form-control" id="itemPrice" min="0" step="0.01" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="itemQty" class="form-label">Quantity on Hand</label>
+                    <input type="number" class="form-control" id="itemQty" min="0" step="1" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Save Menu Item</button>
+                </form>
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <div class="content-card p-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                  <h3 class="h5 mb-0">Coffee Menu</h3>
+                  <input type="search" id="itemSearch" class="form-control search-input" placeholder="Search by code or item name">
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-middle" id="itemsTable">
+                    <thead>
+                      <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>QOH</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="ordersSection" class="page-section d-none">
+          <div class="row g-4">
+            <div class="col-xl-4">
+              <div class="content-card p-4 h-100">
+                <h3 class="h5 mb-3">Create Coffee Order</h3>
+                <div class="mb-3">
+                  <label for="orderCustomer" class="form-label">Select Guest</label>
+                  <select id="orderCustomer" class="form-select"></select>
+                </div>
+                <div class="mb-3">
+                  <label for="orderItem" class="form-label">Select Drink or Item</label>
+                  <select id="orderItem" class="form-select"></select>
+                </div>
+                <div class="mb-3">
+                  <label for="orderQty" class="form-label">Quantity</label>
+                  <input type="number" id="orderQty" class="form-control" min="1" step="1" value="1">
+                </div>
+                <div class="item-meta mb-3" id="selectedItemMeta">Choose a menu item to see stock and price.</div>
+                <button id="addToCartBtn" class="btn btn-primary w-100" type="button">Add To Order</button>
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <div class="content-card p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <h3 class="h5 mb-1">Current Order</h3>
+                    <div id="currentOrderMeta" class="text-secondary small">Order ID will be created automatically.</div>
+                  </div>
+                  <button id="clearCartBtn" class="btn btn-outline-secondary" type="button">Clear Order</button>
+                </div>
+                <div class="table-responsive">
+                  <table class="table align-middle" id="cartTable">
+                    <thead>
+                      <tr>
+                        <th>Code</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Subtotal</th>
+                        <th class="text-end">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div class="row g-3 align-items-end mt-2">
+                  <div class="col-md-8">
+                    <div id="orderConfirmation" class="alert alert-success d-none mb-0"></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="total-box">
+                      <div class="total-label">Grand Total</div>
+                      <div id="grandTotal" class="total-value">$0.00</div>
+                    </div>
+                  </div>
+                </div>
+                <button id="placeOrderBtn" class="btn btn-success btn-lg mt-4 w-100" type="button">Place Coffee Order</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="historySection" class="page-section d-none">
+          <div class="content-card p-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+              <h3 class="h5 mb-0">Order History</h3>
+              <input type="search" id="historySearch" class="form-control search-input" placeholder="Search by order ID or customer">
+            </div>
+            <div class="table-responsive">
+              <table class="table align-middle" id="historyTable">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
