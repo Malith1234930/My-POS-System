@@ -56,7 +56,7 @@ function isAuthenticated() {
 
 function loadState() {
   const defaultCustomers = [
-    { id: "CUS-1001", name: "Mia Perera", phone: "0771234567", address: "Lake Road, Colombo" }
+    { id: "CUS-1001", name: "Malith Bhagya", phone: "0771234567", address: "Lake Road, Kandy" }
   ];
 
   const defaultItems = [
