@@ -547,7 +547,7 @@ function bindEvents() {
     const currentQty = existingLine ? existingLine.qty : 0;
 
     if (qty + currentQty > item.qty) {
-      alert("Requested quantity exceeds stock on hand.");
+      alert("Requested Quantity exceeds stock on hand.");
       return;
     }
 
@@ -584,12 +584,12 @@ function bindEvents() {
     const customer = state.customers.find((entry) => entry.id === customerId);
 
     if (!customer) {
-      alert("Select a valid customer.");
+      alert("Select a valid Customer.");
       return;
     }
 
     if (!state.cart.length) {
-      alert("Add at least one item to the order.");
+      alert("Add at least one Item to the Order.");
       return;
     }
 
