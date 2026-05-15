@@ -221,7 +221,7 @@ body {
 
 .form-control,
 .form-select {
-  min-height: 48px;
+  min-height: 46px;
   border-color: rgba(15, 23, 42, 0.12);
 }
 
@@ -246,7 +246,7 @@ textarea.form-control {
 
 .item-meta {
   padding: 0.9rem 1rem;
-  border-radius: 16px;
+  border-radius: 18px;
   background: #f6ede3;
   color: var(--accent-dark);
 }
