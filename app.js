@@ -125,7 +125,7 @@ function renderCustomers(filterText = "") {
   tbody.empty();
 
   if (!rows.length) {
-    tbody.append(`<tr><td colspan="5" class="empty-state">No customers found.</td></tr>`);
+    tbody.append(`<tr><td colspan="5" class="empty-state">No Customers Found.</td></tr>`);
     return;
   }
 
