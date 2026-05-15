@@ -339,7 +339,7 @@ function selectedItem() {
 function updateSelectedItemMeta() {
   const item = selectedItem();
   if (!item) {
-    $("#selectedItemMeta").text("Choose a menu item to see stock and price.");
+    $("#selectedItemMeta").text("Choose a Menu item to see Stock and Price.");
     return;
   }
 
