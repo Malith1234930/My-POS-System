@@ -277,7 +277,7 @@ function renderRecentOrders() {
     .slice(0, 5);
 
   if (!recent.length) {
-    tbody.append(`<tr><td colspan="4" class="empty-state">No recent cafe orders yet.</td></tr>`);
+    tbody.append(`<tr><td colspan="4" class="empty-state">No recent Cafe Orders yet.</td></tr>`);
     return;
   }
 
