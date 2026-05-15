@@ -152,7 +152,7 @@ body {
   place-items: center;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .demo-credentials {
