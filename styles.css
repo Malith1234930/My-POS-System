@@ -74,7 +74,7 @@ body {
 .landing-stat,
 .showcase-card,
 .beans-note {
-  border-radius: 22px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(93, 59, 38, 0.1);
 }
