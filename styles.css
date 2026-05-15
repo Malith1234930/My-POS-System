@@ -205,7 +205,7 @@ body {
   padding: 1rem 1.1rem;
   border-left: 4px solid var(--accent);
   background: #fbf3ea;
-  border-radius: 16px;
+  border-radius: 18px;
   margin-bottom: 1rem;
 }
 
@@ -216,7 +216,7 @@ body {
 .form-control,
 .form-select,
 .btn {
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 .form-control,
