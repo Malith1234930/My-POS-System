@@ -213,7 +213,7 @@ function renderCart() {
   tbody.empty();
 
   if (!state.cart.length) {
-    tbody.append(`<tr><td colspan="6" class="empty-state">No drinks or snacks added yet.</td></tr>`);
+    tbody.append(`<tr><td colspan="6" class="empty-state">No Drinks or Snacks added yet.</td></tr>`);
   } else {
     state.cart.forEach((line) => {
       tbody.append(`
