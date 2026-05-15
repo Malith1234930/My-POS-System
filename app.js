@@ -462,7 +462,7 @@ function bindEvents() {
     const id = $(this).data("id");
     const usedInOrders = state.orders.some((order) => order.customerId === id);
     if (usedInOrders) {
-      alert("This customer is linked to an order history record and cannot be deleted.");
+      alert("This Customer is linked to an Order History record and cannot be Deleted.");
       return;
     }
 
