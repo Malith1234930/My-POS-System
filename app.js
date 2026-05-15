@@ -363,7 +363,7 @@ function bindEvents() {
       return;
     }
 
-    $("#loginAlert").removeClass("d-none").text("Invalid username or password.");
+    $("#loginAlert").removeClass("d-none").text("Invalid Username or Password.");
   });
 
   $("#logoutBtn").on("click", function () {
