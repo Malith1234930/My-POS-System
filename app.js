@@ -198,7 +198,7 @@ function renderItemOptions() {
 
   if (!availableItems.length) {
     select.append(`<option value="">No items in stock</option>`);
-    $("#selectedItemMeta").text("Add menu items before creating an order.");
+    $("#selectedItemMeta").text("Add menu Items before creating an order.");
     return;
   }
 
