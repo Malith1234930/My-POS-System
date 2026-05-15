@@ -30,7 +30,7 @@ body {
 .auth-card,
 .content-card,
 .hero-panel {
-  border-radius: 28px;
+  border-radius: 26px;
   background: var(--panel);
   box-shadow: var(--shadow);
 }
