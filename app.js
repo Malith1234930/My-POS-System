@@ -466,7 +466,7 @@ function bindEvents() {
       return;
     }
 
-    if (!confirm("Delete this customer?")) {
+    if (!confirm("Delete this Customer?")) {
       return;
     }
 
