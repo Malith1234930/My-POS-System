@@ -250,7 +250,7 @@ function renderHistory(filterText = "") {
   tbody.empty();
 
   if (!rows.length) {
-    tbody.append(`<tr><td colspan="5" class="empty-state">No cafe orders have been placed yet.</td></tr>`);
+    tbody.append(`<tr><td colspan="5" class="empty-state">No Cafe Orders have been placed yet.</td></tr>`);
     return;
   }
 
