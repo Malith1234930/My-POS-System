@@ -599,7 +599,7 @@ function bindEvents() {
     });
 
     if (invalidLine) {
-      alert("One or more order items exceed current stock.");
+      alert("One or more Order Items exceed current stock.");
       return;
     }
 
