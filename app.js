@@ -6,7 +6,7 @@ const STORAGE_KEYS = {
 };
 
 const DEMO_USER = {
-  username: "malith",
+  username: "m",
   password: "2004"
 };
 
